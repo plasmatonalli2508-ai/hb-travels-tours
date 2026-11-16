@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>HB Travels Holbox • Experiencia Armónica & Cubos H2O (Plasma Tonalli)</title>
+  <meta name="description" content="Tours inmersivos, cubos H2O y transiciones armónicas de atardecer y turquesa." />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            holbox: {
+              bg: '#040814',
+              turquoise: '#00f0ff',
+              sunset: '#ff70a6',
+              deepblue: '#0284c7'
+            }
+          }
+        }
+      }
+    }
+  </script>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;800;900&family=Inter:wght@300;400;500;700&display=swap" rel="stylesheet">
+  <style>
+    body { font-family: 'Inter', sans-serif; background-color: #040814; color: #ffffff; overflow-x: hidden; position: relative; }
+    h1, h2, h3, .holbox-font { font-family: 'Montserrat', sans-serif; }
+    .cursor-particle {
+      position: fixed; pointer-events: none; border-radius: 50%;
+      background: radial-gradient(circle, rgba(0, 240, 255, 0.8) 0%, rgba(255, 112, 166, 0.4) 50%, transparent 100%);
+      width: 24px; height: 24px; transform: translate(-50%, -50%);
+      transition: width 0.15s, height 0.15s, opacity 0.2s; z-index: 9999;
+      box-shadow: 0 0 35px rgba(0, 240, 255, 0.7), 0 0 55px rgba(255, 112, 166, 0.3);
+    }
+    .harmonic-transition-1 {
+      background: linear-gradient(180deg, #040814 0%, rgba(2, 132, 199, 0.25) 50%, #060c1d 100%); position: relative;
+    }
+    .harmonic-transition-1::before {
+      content: ''; position: absolute; inset: 0;
+      background: radial-gradient(circle at 50% 50%, rgba(255, 112, 166, 0.12) 0%, transparent 70%); pointer-events: none;
+    }
+    .harmonic-transition-2 {
+      background: linear-gradient(180deg, #060c1d 0%, rgba(255, 112, 166, 0.18) 50%, #040814 100%); position: relative;
+    }
+    .harmonic-transition-2::after {
+      content: ''; position: absolute; inset: 0;
+      background: radial-gradient(circle at 30% 70%, rgba(0, 240, 255, 0.15) 0%, transparent 70%); pointer-events: none;
+    }
+    .tour-card {
+      background: rgba(10, 20, 45, 0.75); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
+      border: 1px solid rgba(0, 240, 255, 0.3); border-radius: 24px;
+      transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1); box-shadow: 0 15px 35px -10px rgba(0, 240, 255, 0.15);
+      opacity: 0; transform: translateX(100px);
+    }
+    .tour-card.active-reveal { opacity: 1; transform: translateX(0); }
+    @media (max-width: 768px) {
+      .tour-card { transform: translateY(30px) scale(0.96); }
+      .tour-card.active-reveal { transform: translateY(0) scale(1); }
+    }
+    .tour-card:hover {
+      transform: translateY(-6px) scale(1.02); border-color: rgba(0, 240, 255, 0.8);
+      box-shadow: 0 0 40px rgba(0, 240, 255, 0.4), 0 0 70px rgba(255, 112, 166, 0.25);
+    }
+    .crystal-card {
+      background: rgba(10, 20, 45, 0.75); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
+      border: 1px solid rgba(0, 240, 255, 0.3); border-radius: 24px;
+      box-shadow: 0 15px 35px -10px rgba(0, 240, 255, 0.15);
+    }
+    .btn-ionizado {
+      position: relative; background: linear-gradient(135deg, rgba(2, 132, 199, 0.3), rgba(0, 240, 255, 0.3));
+      border: 1px solid rgba(0, 240, 255, 0.6); backdrop-filter: blur(8px);
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    .btn-ionizado:hover {
+      background: linear-gradient(135deg, rgba(2, 132, 199, 0.5), rgba(0, 240, 255, 0.5));
+      border-color: #ffffff; box-shadow: 0 0 25px rgba(0, 240, 255, 0.7); transform: translateY(-2px);
+    }
+    @keyframes waveText {
+      0%, 100% { transform: translateY(0px) scale(1); }
+      50% { transform: translateY(-5px) scale(1.02); text-shadow: 0 0 20px rgba(0, 240, 255, 0.8); }
+    }
+    .wave-title { animation: waveText 4s ease-in-out infinite; }
+  </style>
+</head>
+<body class="bg-[#040814] min-h-screen">
+  <div id="cursorParticle" class="cursor-particle opacity-0"></div>
+  <div class="bg-gradient-to-r from-sky-950 via-cyan-950 to-blue-950 text-sky-200 px-6 py-2.5 text-xs font-bold flex justify-between items-center flex-wrap gap-2 relative z-40 tracking-wider border-b border-cyan-500/30">
+    <span>🌴 ISLA DE HOLBOX • EXPERIENCIA ARMÓNICA & H2O</span>
+    <span class="text-cyan-400">✦ COLABORACIÓN PLASMA TONALLI X HB TRAVELS</span>
+  </div>
+  <nav class="sticky top-0 z-50 bg-[#040814]/90 backdrop-blur-md border-b border-cyan-500/20">
+    <div class="max-w-7xl mx-auto px-8 h-24 flex justify-between items-center">
+      <a href="#" class="flex items-center gap-3">
+        <div class="w-11 h-11 rounded-2xl bg-gradient-to-tr from-cyan-500 via-sky-500 to-pink-500 p-[2px] flex items-center justify-center shadow-lg shadow-cyan-500/30">
+          <div class="w-full h-full bg-[#040814] rounded-[14px] flex items-center justify-center font-extrabold text-xs text-cyan-300">HB</div>
+        </div>
+        <span class="holbox-font font-black text-xl tracking-wider text-white">HB TRAVELS <span class="text-cyan-400">HOLBOX</span></span>
+      </a>
+      <div class="hidden md:flex items-center gap-8 text-xs font-bold uppercase tracking-widest text-sky-200">
+        <a href="#experiencia-inmersiva" class="hover:text-cyan-400 transition">Esfera 360°</a>
+        <a href="#modulo-tours" class="hover:text-cyan-400 transition">Cubos H2O Tours</a>
+      </div>
+      <a href="https://wa.me/5215500000000?text=Hola%20HB%20Travels%20Holbox!%20Quiero%20reservar%20mi%20experiencia." target="_blank" rel="noopener noreferrer" class="btn-ionizado text-white font-extrabold px-7 py-3 rounded-xl text-xs uppercase tracking-wider transition">Reservar por WhatsApp</a>
+    </div>
+  </nav>
+  <header class="py-28 md:py-36 border-b border-cyan-500/20 relative overflow-hidden text-center harmonic-transition-1">
+    <div class="max-w-5xl mx-auto px-6 relative z-10">
+      <span class="inline-block bg-cyan-500/10 border border-cyan-500/30 text-cyan-300 px-5 py-2 rounded-full text-xs font-extrabold mb-8 tracking-widest uppercase shadow-lg shadow-cyan-500/10">🌊 EDÉN CARIBEÑO • TURQUESA & ATARDECERES</span>
+      <h1 class="holbox-font text-5xl md:text-7xl font-black max-w-4xl mx-auto leading-tight mb-8 text-white wave-title">HB Travels <span class="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-sky-300 to-pink-400">Holbox</span></h1>
+      <p class="text-base md:text-xl text-sky-200 max-w-2xl mx-auto mb-12 leading-relaxed font-light">Sumerge tu visión en el azul turquesa solar y experimenta cubos interactivos con partículas H2O vivas en cada expedición.</p>
+      <div class="flex flex-wrap justify-center gap-4">
+        <a href="#experiencia-inmersiva" class="btn-ionizado text-white font-extrabold px-8 py-4 rounded-xl text-xs uppercase tracking-widest transition shadow-xl">🔮 Entrar al Visor 360°</a>
+        <a href="#modulo-tours" class="btn-ionizado text-white font-extrabold px-8 py-4 rounded-xl text-xs uppercase tracking-widest transition shadow-xl">🧊 Cubos H2O Tours</a>
+      </div>
+    </div>
+  </header>
+  <section id="experiencia-inmersiva" class="py-28 border-b border-cyan-500/20 bg-[#060c1d] relative overflow-hidden harmonic-transition-2">
+    <div class="max-w-4xl mx-auto px-8 text-center relative z-10">
+      <span class="text-cyan-400 font-extrabold text-xs uppercase tracking-widest">SIMULADOR INMERSIVO WEBGL 360°</span>
+      <h2 class="holbox-font text-4xl md:text-5xl font-black mt-2 mb-4 text-white">Atmosferas de Holbox</h2>
+      <p class="text-sky-200 text-sm mb-8">Alterna armónicamente entre el brillo del sol turquesa y la calidez del atardecer. Arrastra la esfera para explorar libremente.</p>
+      <div class="flex justify-center gap-4 mb-8">
+        <button onclick="cambiarAmbiente('turquesa')" id="btnTurquesa" class="px-6 py-2.5 rounded-xl text-xs uppercase font-extrabold tracking-wider bg-cyan-600 text-white shadow-lg shadow-cyan-600/40 transition">☀️ Sol & Turquesa</button>
+        <button onclick="cambiarAmbiente('atardecer')" id="btnAtardecer" class="px-6 py-2.5 rounded-xl text-xs uppercase font-extrabold tracking-wider bg-[#0a0612] border border-pink-500/40 text-pink-300 transition">🌅 Atardecer Dorado</button>
+      </div>
+      <div class="crystal-card p-8 max-w-xl mx-auto flex flex-col items-center !transform-none !opacity-100 bg-opacity-80">
+        <div class="relative rounded-2xl overflow-hidden border border-cyan-500/50 bg-black shadow-[0_0_60px_rgba(0,240,255,0.3)] mb-6">
+          <canvas id="immersiveSphereCanvas" width="380" height="380" style="touch-action: none; cursor: grab; display: block;"></canvas>
+          <div id="visorBadge" class="absolute top-3 left-3 bg-[#040814]/80 backdrop-blur-md border border-cyan-500/30 text-cyan-300 text-[10px] font-extrabold px-3 py-1 rounded-full uppercase tracking-wider">☀️ TURQUESA SOLAR ACTIVE</div>
+        </div>
+        <div class="w-full space-y-4">
+          <label for="holboxImageLoader" class="block text-xs uppercase tracking-widest font-bold text-sky-200">Cargar tu propia foto panorámica de Holbox:</label>
+          <input type="file" id="holboxImageLoader" accept="image/*" class="w-full text-xs text-sky-300 file:mr-4 file:py-3 file:px-4 file:rounded-xl file:border-0 file:text-xs file:font-extrabold file:bg-gradient-to-r file:from-sky-600 file:to-pink-600 file:text-white cursor-pointer" />
+        </div>
+      </div>
+    </div>
+  </section>
+  <section id="modulo-tours" class="py-28 border-b border-cyan-500/20 bg-[#040814] relative overflow-hidden harmonic-transition-1">
+    <div class="max-w-7xl mx-auto px-8">
+      <div class="text-center max-w-2xl mx-auto mb-20">
+        <span class="text-cyan-400 font-extrabold text-xs uppercase tracking-widest">AVENTURAS EN LA ISLA</span>
+        <h2 class="holbox-font text-4xl md:text-5xl font-black mt-2 mb-4 text-white">Cubos H2O & Tours Oficiales</h2>
+        <p class="text-sky-200 text-sm">Selecciona una experiencia para activar las partículas de H2O contenidas en el cubo.</p>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div class="tour-card p-6 flex flex-col justify-between cursor-pointer" onclick="activarCuboH2O(this, 'Tiburon Ballena')">
+          <div><div class="w-full h-36 rounded-xl bg-black border border-cyan-500/30 mb-4 overflow-hidden relative"><canvas class="h2o-cube-canvas w-full h-full" width="220" height="140"></canvas><div class="absolute inset-0 flex items-center justify-center pointer-events-none"><span class="text-4xl">🦈</span></div></div><h3 class="holbox-font text-xl font-bold text-white mb-2">Tiburón Ballena</h3><p class="text-xs text-sky-200 mb-6 font-light">Expedición guiada para nadar con el gigante noble del caribe mexicano.</p></div>
+          <a href="https://wa.me/5215500000000?text=Hola%20HB%20Travels!%20Quiero%20reservar%20el%20Tour%20del%20Tiburón%20Ballena." target="_blank" rel="noopener noreferrer" class="btn-ionizado text-white font-bold py-3 rounded-xl text-xs uppercase tracking-widest text-center transition">Reservar Tour</a>
+        </div>
+        <div class="tour-card p-6 flex flex-col justify-between cursor-pointer" onclick="activarCuboH2O(this, 'Tres Islas')">
+          <div><div class="w-full h-36 rounded-xl bg-black border border-cyan-500/30 mb-4 overflow-hidden relative"><canvas class="h2o-cube-canvas w-full h-full" width="220" height="140"></canvas><div class="absolute inset-0 flex items-center justify-center pointer-events-none"><span class="text-4xl">🏝️</span></div></div><h3 class="holbox-font text-xl font-bold text-white mb-2">Tour Tres Islas</h3><p class="text-xs text-sky-200 mb-6 font-light">Isla Pájaros, Cenote Yalahau e Isla Pasión con guías locales expertos.</p></div>
+          <a href="https://wa.me/5215500000000?text=Hola%20HB%20Travels!%20Quiero%20reservar%20el%20Tour%20de%20las%20Tres%20Islas." target="_blank" rel="noopener noreferrer" class="btn-ionizado text-white font-bold py-3 rounded-xl text-xs uppercase tracking-widest text-center transition">Reservar Tour</a>
+        </div>
+        <div class="tour-card p-6 flex flex-col justify-between cursor-pointer" onclick="activarCuboH2O(this, 'Kayak Manglar')">
+          <div><div class="w-full h-36 rounded-xl bg-black border border-cyan-500/30 mb-4 overflow-hidden relative"><canvas class="h2o-cube-canvas w-full h-full" width="220" height="140"></canvas><div class="absolute inset-0 flex items-center justify-center pointer-events-none"><span class="text-4xl">🛶</span></div></div><h3 class="holbox-font text-xl font-bold text-white mb-2">Kayak por el Manglar</h3><p class="text-xs text-sky-200 mb-6 font-light">Navegación íntima y silenciosa por los canales naturales de la laguna.</p></div>
+          <a href="https://wa.me/5215500000000?text=Hola%20HB%20Travels!%20Quiero%20reservar%20el%20Tour%20en%20Kayak." target="_blank" rel="noopener noreferrer" class="btn-ionizado text-white font-bold py-3 rounded-xl text-xs uppercase tracking-widest text-center transition">Reservar Tour</a>
+        </div>
+        <div class="tour-card p-6 flex flex-col justify-between cursor-pointer" onclick="activarCuboH2O(this, 'Bioluminiscencia')">
+          <div><div class="w-full h-36 rounded-xl bg-black border border-cyan-500/30 mb-4 overflow-hidden relative"><canvas class="h2o-cube-canvas w-full h-full" width="220" height="140"></canvas><div class="absolute inset-0 flex items-center justify-center pointer-events-none"><span class="text-4xl">✨</span></div></div><h3 class="holbox-font text-xl font-bold text-white mb-2">Bioluminiscencia</h3><p class="text-xs text-sky-200 mb-6 font-light">Magia nocturna: el agua brilla con destellos estelares al mover las olas.</p></div>
+          <a href="https://wa.me/5215500000000?text=Hola%20HB%20Travels!%20Quiero%20reservar%20el%20Tour%20de%20Bioluminiscencia." target="_blank" rel="noopener noreferrer" class="btn-ionizado text-white font-bold py-3 rounded-xl text-xs uppercase tracking-widest text-center transition">Reservar Tour</a>
+        </div>
+      </div>
+    </div>
+  </section>
+  <footer class="py-16 text-center text-xs text-sky-300 space-y-3 bg-[#040814]">
+    <p><strong>HB Travels Holbox</strong> • Creado con amistad y visión por <strong>Ricardo Grimaldo</strong> (Plasma Tonalli).</p>
+    <p class="text-cyan-400 font-bold">✨ Transiciones armónicas, cubos H2O y atardeceres en vivo.</p>
+  </footer>
+  <script>
+    const particle = document.getElementById('cursorParticle');
+    let mouseX = 0, mouseY = 0, particleX = 0, particleY = 0;
+    window.addEventListener('mousemove', (e) => { mouseX = e.clientX; mouseY = e.clientY; particle.style.opacity = '0.9'; });
+    window.addEventListener('touchmove', (e) => { if(e.touches.length > 0) { mouseX = e.touches[0].clientX; mouseY = e.touches[0].clientY; particle.style.opacity = '0.9'; } });
+    function animateParticle() { particleX += (mouseX - particleX) * 0.15; particleY += (mouseY - particleY) * 0.15; particle.style.left = particleX + 'px'; particle.style.top = particleY + 'px'; requestAnimationFrame(animateParticle); }
+    animateParticle();
+    const tourCards = document.querySelectorAll('.tour-card');
+    const observerOptions = { threshold: 0.15 };
+    const tourObserver = new IntersectionObserver((entries) => { entries.forEach((entry, index) => { if(entry.isIntersecting) { setTimeout(() => { entry.target.classList.add('active-reveal'); }, index * 160); tourObserver.unobserve(entry.target); } }); }, observerOptions);
+    tourCards.forEach(card => tourObserver.observe(card));
+    class H2OCube {
+      constructor(canvas) { this.canvas = canvas; this.ctx = canvas.getContext('2d'); this.particles = []; this.excited = false; this.initParticles(); }
+      initParticles() { for(let i=0; i<40; i++) { this.particles.push({ x: Math.random() * this.canvas.width, y: Math.random() * this.canvas.height, vx: (Math.random() - 0.5) * 1.0, vy: (Math.random() - 0.5) * 1.0, radius: Math.random() * 2 + 1.5 }); } }
+      excite() { this.excited = true; this.particles.forEach(p => { p.vx = (Math.random() - 0.5) * 5; p.vy = (Math.random() - 0.5) * 5; }); setTimeout(() => { this.excited = false; }, 1200); }
+      draw() { this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height); this.ctx.fillStyle = 'rgba(2, 132, 199, 0.12)'; this.ctx.fillRect(0, 0, this.canvas.width, this.canvas.height); this.particles.forEach(p => { p.x += p.vx; p.y += p.vy; if(p.x < 0 || p.x > this.canvas.width) p.vx *= -1; if(p.y < 0 || p.y > this.canvas.height) p.vy *= -1; this.ctx.fillStyle = this.excited ? '#ff70a6' : '#00f0ff'; this.ctx.beginPath(); this.ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2); this.ctx.fill(); }); }
+    }
+    const cubeSims = [];
+    document.querySelectorAll('.h2o-cube-canvas').forEach(canvas => { cubeSims.push(new H2OCube(canvas)); });
+    function loopCubos() { cubeSims.forEach(sim => sim.draw()); requestAnimationFrame(loopCubos); }
+    loopCubos();
+    function activarCuboH2O(cardElement, nombreTour) { const canvas = cardElement.querySelector('.h2o-cube-canvas'); const sim = cubeSims.find(s => s.canvas === canvas); if(sim) sim.excite(); }
+    const canvas = document.getElementById('immersiveSphereCanvas');
+    const ctx = canvas.getContext('2d');
+    let rotX = 0.4, rotY = 0, isDragging = false, startX = 0, startY = 0, customTexture = null, waveTime = 0, modoAmbiente = 'turquesa';
+    function cambiarAmbiente(modo) {
+      modoAmbiente = modo;
+      const btnT = document.getElementById('btnTurquesa'), btnA = document.getElementById('btnAtardecer'), badge = document.getElementById('visorBadge');
+      if(modo === 'turquesa') {
+        btnT.className = "px-6 py-2.5 rounded-xl text-xs uppercase font-extrabold tracking-wider bg-cyan-600 text-white shadow-lg shadow-cyan-600/40 transition";
+        btnA.className = "px-6 py-2.5 rounded-xl text-xs uppercase font-extrabold tracking-wider bg-[#0a0612] border border-pink-500/40 text-pink-300 transition";
+        badge.innerText = "☀️ TURQUESA SOLAR ACTIVE";
+        badge.className = "absolute top-3 left-3 bg-[#040814]/80 backdrop-blur-md border border-cyan-500/30 text-cyan-300 text-[10px] font-extrabold px-3 py-1 rounded-full uppercase tracking-wider";
+      } else {
+        btnA.className = "px-6 py-2.5 rounded-xl text-xs uppercase font-extrabold tracking-wider bg-pink-600 text-white shadow-lg shadow-pink-600/40 transition";
+        btnT.className = "px-6 py-2.5 rounded-xl text-xs uppercase font-extrabold tracking-wider bg-[#0a0612] border border-cyan-500/40 text-cyan-300 transition";
+        badge.innerText = "🌅 ATARDECER DORADO ACTIVE";
+        badge.className = "absolute top-3 left-3 bg-[#040814]/80 backdrop-blur-md border border-pink-500/30 text-pink-300 text-[10px] font-extrabold px-3 py-1 rounded-full uppercase tracking-wider";
+      }
+    }
+    canvas.addEventListener('pointerdown', (e) => { isDragging = true; startX = e.clientX; startY = e.clientY; canvas.setPointerCapture(e.pointerId); });
+    canvas.addEventListener('pointermove', (e) => { if (!isDragging) return; const dx = e.clientX - startX, dy = e.clientY - startY; rotY += dx * 0.01; rotX += dy * 0.01; startX = e.clientX; startY = e.clientY; });
+    canvas.addEventListener('pointerup', (e) => { isDragging = false; if (canvas.hasPointerCapture(e.pointerId)) canvas.releasePointerCapture(e.pointerId); });
+    canvas.addEventListener('pointercancel', () => { isDragging = false; });
+    function drawImmersiveSphere() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height); const cx = canvas.width / 2, cy = canvas.height / 2, radius = 140; waveTime += 0.03;
+      ctx.beginPath(); ctx.arc(cx, cy, radius + 12, 0, Math.PI * 2);
+      ctx.strokeStyle = modoAmbiente === 'turquesa' ? 'rgba(0, 240, 255, 0.6)' : 'rgba(255, 112, 166, 0.6)'; ctx.lineWidth = 2.5;
+      ctx.shadowColor = modoAmbiente === 'turquesa' ? 'rgba(0, 240, 255, 0.9)' : 'rgba(255, 112, 166, 0.9)'; ctx.shadowBlur = 20; ctx.stroke(); ctx.shadowBlur = 0;
+      if (customTexture && customTexture.complete) {
+        ctx.save(); ctx.beginPath(); ctx.arc(cx, cy, radius, 0, Math.PI * 2); ctx.clip(); const steps = 45;
+        for (let i = 0; i < steps; i++) { let phi = (i / steps) * Math.PI; for (let j = 0; j < steps * 2; j++) { let theta = (j / (steps * 2)) * Math.PI * 2; let x = radius * Math.sin(phi) * Math.cos(theta + rotY), y = radius * Math.cos(phi), z = radius * Math.sin(phi) * Math.sin(theta + rotY); let yRot = y * Math.cos(rotX) - z * Math.sin(rotX), zRot = y * Math.sin(rotX) + z * Math.cos(rotX); if (zRot > -radius) { let screenX = cx + x, screenY = cy + yRot, alpha = (zRot + radius) / (radius * 2); ctx.globalAlpha = Math.max(0.3, alpha); let u = (theta / (Math.PI * 2)) * customTexture.width, v = (phi / Math.PI) * customTexture.height; try { ctx.drawImage(customTexture, u, v, 8, 8, screenX - 3, screenY - 3, 6, 6); } catch(err) {} } } }
+        ctx.restore();
+      } else {
+        ctx.save(); ctx.beginPath(); ctx.arc(cx, cy, radius, 0, Math.PI * 2); ctx.fillStyle = modoAmbiente === 'turquesa' ? '#020617' : '#120418'; ctx.fill(); ctx.clip(); const particleCount = 280;
+        for (let i = 0; i < particleCount; i++) { let theta = (i * 2.4) + rotY * 1.5, phi = Math.sin(i + waveTime * 0.5) * 1.2 + rotX; let x = radius * Math.sin(phi) * Math.cos(theta), y = radius * Math.cos(phi) + Math.sin(waveTime + i) * 8, z = radius * Math.sin(phi) * Math.sin(theta); let screenX = cx + x, screenY = cy + y, depthAlpha = (z + radius) / (radius * 2); ctx.globalAlpha = Math.max(0.15, depthAlpha); ctx.fillStyle = modoAmbiente === 'turquesa' ? (i % 2 === 0 ? '#00f0ff' : '#38bdf8') : (i % 2 === 0 ? '#ff70a6' : '#fbbf24'); ctx.beginPath(); ctx.arc(screenX, screenY, Math.max(1, depthAlpha * 3), 0, Math.PI * 2); ctx.fill(); }
+        for (let r = 20; r < radius; r += 25) { ctx.beginPath(); let currentR = (r + (waveTime * 15) % radius); ctx.arc(cx, cy, currentR, 0, Math.PI * 2); let strokeColor = modoAmbiente === 'turquesa' ? `rgba(0, 240, 255, ${Math.max(0, 0.4 - (currentR / radius) * 0.3)})` : `rgba(255, 112, 166, ${Math.max(0, 0.4 - (currentR / radius) * 0.3)})`; ctx.strokeStyle = strokeColor; ctx.lineWidth = 1.5; ctx.stroke(); }
+        ctx.restore(); ctx.save(); ctx.fillStyle = '#ffffff'; ctx.font = 'bold 13px Montserrat'; ctx.textAlign = 'center'; ctx.shadowColor = modoAmbiente === 'turquesa' ? '#00f0ff' : '#ff70a6'; ctx.shadowBlur = 12; let floatOffset = Math.sin(waveTime * 2) * 4; ctx.fillText('HB TRAVELS HOLBOX', cx, cy + floatOffset - 5); ctx.fillStyle = modoAmbiente === 'turquesa' ? '#00f0ff' : '#ff70a6'; ctx.font = '10px Montserrat'; ctx.fillText(modoAmbiente === 'turquesa' ? '✦ AZUL TURQUESA 360° ✦' : '✦ ATARDECER DORADO 360° ✦', cx, cy + floatOffset + 18); ctx.restore();
+      }
+      if (!isDragging) rotY += 0.0035;
+      requestAnimationFrame(drawImmersiveSphere);
+    }
+    drawImmersiveSphere();
+    const imageLoader = document.getElementById('holboxImageLoader');
+    imageLoader.addEventListener('change', (e) => {
+      const file = e.target.files[0]; if(file) { const reader = new FileReader(); reader.onload = function(event) { const img = new Image(); img.onload = function() { const canvasTemp = document.createElement('canvas'), MAX_WIDTH = 600, scaleSize = MAX_WIDTH / img.width; canvasTemp.width = MAX_WIDTH; canvasTemp.height = img.height * scaleSize; const ctxTemp = canvasTemp.getContext('2d'); ctxTemp.drawImage(img, 0, 0, canvasTemp.width, canvasTemp.height); customTexture = new Image(); customTexture.src = canvasTemp.toDataURL('image/webp', 0.85); }; img.src = event.target.result; }; reader.readAsDataURL(file); }
+    });
+  </script>
+</body>
+</html>
